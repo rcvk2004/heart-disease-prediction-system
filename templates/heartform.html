@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Predictor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/static/images/heart-plus-96.png">
+    <style>
+        body {
+            background-color: #212121;
+            background-image: url("/static/images/Designer.png");
+            color: white;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            border: 2px solid #9df8ff;
+            border-radius: 10px;
+            padding: 1%;
+            margin: 10px;
+        }
+
+        label {
+            width: 400px;
+            display: inline-block;
+        }
+
+        .notfor {
+            width: auto;
+        }
+
+        fieldset input {
+            margin: 10px;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin: 1.5%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Heart Disease Predictor</h1><br>
+    <form action="{{ url_for('predict')}}" method="post" class="container">
+        <fieldset align="center">
+            <label for="age">Age: </label>
+            <input type="text" name="age" id="age" required>
+            <br>
+            <label for="sex">Sex: </label>
+            <span>
+                <input type="radio" id="male" name="sex" value="1">
+                <label class="notfor" for="male">Male</label>
+            </span>
+            <input type="radio" id="female" name="sex" value="0">
+            <label class="notfor" for="female">Female</label>
+            <br>
+            <label for="cp">Chest Pain Type: </label>
+            <select name="cp" id="cp">
+                <option value="0">Asymptomatic</option>
+                <option value="1">Non-anginal</option>
+                <option value="2">Atypical Angina</option>
+                <option value="3">Typical Angina</option>
+            </select>
+            <br>
+            <label for="trestbps">Resting Blood Pressure: </label>
+            <input type="text" name="trestbps" required>
+            <br>
+            <label for="chol">Serum Cholestrol: </label>
+            <input type="text" name="chol" required>
+            <br>
+            <label for="fbs">Fasting Blood Sugar: </label>
+            <input type="text" name="fbs" required>
+            <br>
+            <label for="restecg">Resting ECG: </label>
+            <select name="restecg" id="restecg">
+                <option value="0">Normal</option>
+                <option value="1">STT Abnormality</option>
+                <option value="2">LV Hypertrophy</option>
+            </select>
+            <br>
+            <label for="thalach">Maximum heart rate achieved: </label>
+            <input type="text" name="thalach" required>
+            <br>
+            <label for="exang">Exercise induced angina: </label>
+            <input type="radio" id="true" name="exang" value="1">
+            <label class="notfor" for="exang">True</label>
+            <input type="radio" id="false" name="exang" value="0">
+            <label class="notfor" for="exang">False</label>
+            <br>
+            <label for="oldpeak">ST depression induced by exercise relative to rest: </label>
+            <input type="text" name="oldpeak" required>
+            <br>
+            <label for="slope">Peak exercise ST segment: </label>
+            <select name="slope" id="slope">
+                <option value="1">Flat</option>
+                <option value="0">Upsloping</option>
+                <option value="2">Downsloping</option>
+            </select>
+            <br>
+            <label for="ca">Number of major vessels (0-3) colored by flourosopy: </label>
+            <input type="text" name="ca" required>
+            <br>
+            <label for="thal">Thalassemia: </label>
+            <select name="thal" id="thal">
+                <option value="0">Normal</option>
+                <option value="1">Reversible Defect</option>
+                <option value="2">Fixed Defect</option>
+            </select>
+            <br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+</body>
+
+</html>
